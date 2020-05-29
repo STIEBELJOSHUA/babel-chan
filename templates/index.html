@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+  <title>Babelchan</title>
+  <meta name="description" content="Babelchan">
+  <link rel="stylesheet" href="{{ url_for('static', filename='default.css')}}">
+</head>
+<a href="{{ url_for('home')}}"><img id ="logo" src="/static/images/Logo.png" alt="Babelchanlogo"></a>
+<body>
+	<div id ="myDiv">
+		<header id="welcome"><b>What is Babelchan?</b></header>
+	<p id="para"> Babelchan is a simple text based message board based on 4chan. The main differences is that, unlike 4chan, the site has a near infinite ammount of boards. There are the main public boards listed on the homepage, and private boards that can be found by altering the url. To go to a private board, go to babelchan.org/board/boardname. Unlike reddit where subreddits have to be created by a user, all boards already exist, most of them just lack content. For more information on how to take advantage of the private board system, please read the FAQ. This website was mostly created
+	so I could have a programming project to work on, not becuase I though the internet needed another message board. Anyway, feel free to take a look around and enjoy the site. </p>
+	<p>
+	Please be sure to read the <a href="">Rules</a> before posting, and read the <a href="">FAQ</a> if you have any more questions about the site. Happy posting!
+	</p>
+	</div>
+
+	<div id ="myDivboard">
+		<header id="boards"><b>Boards</b></header>
+		<ul class="columns">
+        <li> <u>Anime and Manga</u></li>
+        	<li><a class='boardname' href="{{ url_for('board', id = 'Anime General') }}">Anime General</a></li>
+        	<li><a class='boardname' href="{{ url_for('board', id = 'Manga General') }}">Manga General</a></li>
+        	<li><a class='boardname' href="{{ url_for('board', id = 'Jojos Bizzare Adventure') }}">Jojo's Bizzare</a></li>
+        	<li><a class='boardname' href="{{ url_for('board', id = 'Evangelion') }}">Neon Genesis</a></li>
+        	<li><a class='boardname' href="{{ url_for('board', id = 'Current Anime Season') }}">Current Season</a></li>
+        	<li><a class='boardname' href="{{ url_for('board', id = 'Animemes') }}">Anime Memes</a></li>
+      
+        <li><u>Video Games</u></li>
+        	<li><a href="{{ url_for('board', id = 'Video Game General') }}">Video Game General</a></li>
+        	<li><a href="{{ url_for('board', id = 'Counter Strike') }}">CS:GO</a></li>
+        	<li><a href="{{ url_for('board', id = 'Rainbow Six') }}">Rainbow 6</a></li>
+        	<li><a href="{{ url_for('board', id = 'Hearthstone') }}">Hearthstone</a></li>
+        	<li><a href="{{ url_for('board', id = 'Dark Souls') }}">Dark Souls</a></li>
+        	<li><a href="{{ url_for('board', id = 'Animal Crossing') }}">Animal Crossing</a></li>
+     
+        <li><u>Tabletop Gaming</u></li>
+        	<li><a href="{{ url_for('board', id = 'Tabletop General') }}">Tabletop General</a></li>
+        	<li><a href="{{ url_for('board', id = 'Magic: The Gathering') }}">MTG</a></li>
+        	<li><a href="{{ url_for('board', id = 'Warhammer') }}">Warhammer</a></li>
+        	<li><a href="{{ url_for('board', id = 'Dungeons and Dragons') }}">D&D</a></li>
+        	<li><a href="{{ url_for('board', id = 'Board Games') }}">Board Games</a></li>
+        	<li><a href="{{ url_for('board', id = 'Miniature Painting') }}">Mini Painting</a></li>
+   
+        <li> <u>Memes</u> </li>
+        	<li><a href="{{ url_for('board', id = 'memes') }}">Memes General</a></li>
+        	<li><a href="{{ url_for('board', id = 'memes') }}">Memes?</a></li>
+        	<li><a href="{{ url_for('board', id = 'memes') }}">m e m e s</a></li>
+        	<li><a href="{{ url_for('board', id = 'memes') }}">Memes??</a></li>
+        	<li><a href="{{ url_for('board', id = 'memes') }}">MEMEs!?!?</a></li>
+        	<li><a href="{{ url_for('board', id = 'memes') }}">MEMES!!!!!</a></li>
+     
+        <li> <u>Other</u></li>
+        	<li><a href="{{ url_for('board', id = 'Stocks') }}">Stocks</a></li>
+        	<li><a href="{{ url_for('board', id = 'College Life') }}">College Life</a></li>
+        	<li><a href="{{ url_for('board', id = 'Random') }}">Random</a></li>
+        	<li><a href="{{ url_for('board', id = 'Osgood Memes') }}">Osgood Memes</a></li>
+        	<li><a href="{{ url_for('board', id = 'Music') }}">Music</a></li>
+        	<li><a href="{{ url_for('board', id = 'Programming') }}">Programming</a></li>
+        
+     
+
+    </ul>
+ 
+    </div>
+<footer>
+<b><a href="">About</a> • <a href="">Feedback</a> • <a href="">Legal</a> • <a href="">Contact</a> <br><br></b>
+Copyright © 2020 Babelchan.  All rights reserved.</footer>
+</body>
+</html>

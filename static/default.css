@@ -1,0 +1,189 @@
+html {
+	height: 100%;
+  padding-bottom: 20px;
+    
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: linear-gradient(#FED7B0 , #FFFFEE );
+
+}
+
+  .myDiv3 {
+  color:#990a00;
+  font-family: Arial;
+  font-size: 12px;
+  text-align: : left;
+  margin-top: 4px;
+  margin-bottom: 5px;
+  float:left;
+  line-height: 150%;
+  border: 1px outset #d9bfb7;
+  background-color: #f0e0d6;    
+}
+
+textarea{
+  resize: none;
+}
+
+
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 18%;
+  padding: 15px;
+}
+
+
+
+#myDiv {
+  font-family: Arial;
+  font-size: 12px;
+  text-align: left;
+  margin: auto;
+  width: 40%;
+  line-height: 150%;
+  border: 1px outset black;
+  background-color: white;    
+}
+
+#myDivo {
+  font-family: Arial;
+  font-size: 12px;
+  text-align: left;
+  margin: auto;
+  width: 40%;
+  line-height: 150%;   
+}
+
+#para {
+  margin-top: 3px;  
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+
+#welcome{
+	line-height: 100%;
+	padding: 2px;
+	font-family:Helvetica;
+	color:white;
+	font-size: 20px;
+	text-align: left;
+	background-color: #990a00;  
+}
+
+#welcome2{
+  line-height: 100%;
+  padding: 2px;
+  font-family:Helvetica;
+  color:#990a00;
+  font-size: 30px;
+  text-align: center; 
+}
+
+#boards{
+	line-height: 100%;
+	padding: 2px;
+	font-family:Helvetica;
+	color:#990a00;
+	font-size: 20px;
+	text-align: left;
+	background-color: #f7cda1;  
+}
+
+a{
+color:#990a00;	
+}
+
+
+
+
+#myDiv2 {
+  color:#990a00;
+  font-family: Arial;
+  font-size: 12px;
+  text-align: : left;
+  margin: auto;
+  margin-top: 4px;
+  width: 40%;
+  line-height: 150%;
+  border: 1px outset #d9bfb7;
+  background-color: #f0e0d6;    
+}
+
+
+#myDivpost {
+  color:#990a00;
+  font-family: Arial;
+  font-size: 12px;
+  text-align: : left;
+  margin: auto;
+  margin-top: 4px;
+  width: 40%;
+  line-height: 150%;
+  border: 1px outset black;
+  background-color: white;    
+}
+
+
+#myDivboard {
+  color:#990a00;
+  font-family: Arial;
+  font-size: 12px;
+  text-align: : left;
+  margin: auto;
+  margin-top: 4px;
+  width: 40%;
+  line-height: 150%;
+  border: 1px outset black;
+  background-color: white;    
+}
+
+
+ ul {
+  list-style-type: none;
+  padding:0 30px;
+  columns: 5;
+}
+
+footer {
+  font-family: Arial;
+  font-size: 11px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 11px; 
+  width: 100%;
+  color: #800;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: hotpink;
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1045px) {
+  /* For mobile: */
+  #myDiv{width:100%; margin-right:10px;}
+  #myDiv2{width:100%; margin-right:10px;}
+  #myDivboard{width:100%; margin-right:10px;}
+  .myDiv3{width:100%; margin-right:10px;}
+  #logo{width: 30%;}
+  #arrows{display: none;}
+  
+}
+
+

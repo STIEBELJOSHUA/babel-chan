@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+<style>
+
+  img{
+      padding-left: 5px;
+    }
+
+
+
+ 
+
+  #arrows{color: #990a00;
+    float: left;
+    margin-right: 2px;
+    margin-top: 0;
+    margin-left: 2px;
+
+}
+#flex{
+  display: flex;
+}
+
+#replio{
+  float:right; 
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px ;
+}
+
+:target {
+  background-color: #f0c0b0!important;
+}
+
+</style>
+
+
+  <title>Babelchan</title>
+  <meta name="description" content="Babelchan">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="{{ url_for('static', filename='default.css')}}">
+</head>
+<a href="{{ url_for('home')}}"><img id ="logo" src="/static/images/Logo.png" alt="Babelchanlogo"></a>
+<body>
+  <hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;">
+	<div id ="myDivo" >
+		<header id="welcome2"><b>Thread ID #{{id}}</b></header>
+    <hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;">
+		<br>
+	<p id="para" style="font-size:25px;line-height:30px;text-align:center;"> [<a href="{{ url_for('reply', postnum = id) }}" style="color:blue;">REPLY TO THIS THREAD</a>] </p>
+  <hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;">
+	<p style="text-align: center">
+	Please be sure to read the <a href="">Rules</a> before posting, and read the <a href="">FAQ</a> if you have any more questions about the site. Happy posting!
+	</p>
+	</div>
+	<hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;">
+<div id="flex">
+ {% for post in posts %}
+ <div id="arrows">
+   >>&nbsp;&nbsp;&nbsp;
+ </div>
+  <div class ="myDiv3" id="{{post[0]}}">
+    <header style="font-size: 15px;padding-left: 5px;color:#cc1105;padding-top: 5px;"><b>{{post[2]}}</b></header>
+    <hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;width:96%;">
+    &nbsp;&nbsp;<b><span style="color:#117743;font-weight:bold">{{post[3]}} (OP)</span></b>   &nbsp;&nbsp; <span id="{{post[0]}}">Post ID:{{post[0]}}</span>  &nbsp;&nbsp; Date:{{post[4][0:10]}}&nbsp;&nbsp;
+    <br>
+
+<div style="column-count: 2; display: flex;">
+
+<div style="float:left;">
+    <img alt='{{post[1]}}' id='myImg' style="width:100px;" src="/static/images/posts/{{post[1]}}" />
+  </div>
+
+      <div id="replio">
+    {% set maintext = post[6].split('\n') %}
+    {% for para in maintext %}
+    {% if para[0] == '>' and para[1] != '>' %}
+    <span style="color:green;">{{para}}</span><br>
+    {% elif para[0] == '*' %}
+      {% if para[1:9] == 'https://' or para[1:8] == 'http://'  %}
+      <a href="{{para[1:]}}"><span style="color:blue;font-weight:bold">{{para[1:]}}</span></a><br>
+      {% else %}
+      {% set para = 'http://'+para[1:] %}
+      <a href="{{para}}"><span style="color:blue;font-weight:bold">{{para}}</span></a><br>
+      {% endif %}
+    {% else %}
+    {{para}}<br>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+</div>
+</div>
+  {% endfor %}
+</div>
+
+
+  {% for reply in repl %}
+ <!-- text formatting -->
+ {% set maintext = reply[4].split('\n') %}
+
+
+
+
+  <div id="flex">
+ <div id="arrows">
+   >>&nbsp;&nbsp;&nbsp;
+ </div>
+
+  <div class ="myDiv3" id="{{reply[0]}}">
+  <div>
+    <b>&nbsp;&nbsp;<span style="color:#117743;font-weight:bold">{{reply[2]}}</span></b>&nbsp;&nbsp;  Reply ID:<span id="{{reply[0]}}">{{reply[0]}}</span> &nbsp;&nbsp;Date: {{reply[3][0:10]}}&nbsp;&nbsp;
+    <br>
+
+    <div style="column-count: 2; display: flex;">
+{% if reply[1] != 'none' %}
+      <div style="float:left;">
+    <img alt='{{reply[1]}}' id='myImg' style="width:100px;" src="/static/images/posts/{{reply[1]}}" />
+    </div>
+ {% endif %}
+    <div id="replio">
+    {% for para in maintext %}
+    {% if para[0] == '>' and para[1] != '>' %}
+    <span style="color:green;">{{para}}</span><br>
+    {% elif para[0] == '>' and para[1] == '>' and para.strip()|length == 11 and para.strip()[2:] in replids %}
+    <a href="#{{para[2:]}}"><span style="color:blue;font-weight:bold"><u>{{para}}</u></span></a><br>
+    {% elif para[0] == '>' and para[1] == '>' and para.strip()|length == 11 and para.strip()[2:] == id %}
+    <a href="#{{para[2:]}}"><span style="color:blue;font-weight:bold"><u>{{para}} (OP)</u></span></a><br>
+    {% elif para[0] == '*' %}
+      {% if para[1:9] == 'https://' or para[1:8] == 'http://'  %}
+      <a href="{{para[1:]}}"><span style="color:blue;font-weight:bold">{{para[1:]}}</span></a><br>
+      {% else %}
+      {% set para = 'http://'+para[1:] %}
+      <a href="{{para}}"><span style="color:blue;font-weight:bold">{{para}}</span></a><br>
+      {% endif %}
+    {% else %}
+    {{para}}<br>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+    </div>
+
+
+  </div>
+  </div>
+</div>
+</div>
+  {% endfor %}
+<br><br>
+ <div class ="myDiv3" style="margin-top: 100px">
+ <h2><a href="{{ url_for('board', id = posts[0][5]) }}">[Back to {{posts[0][5]}}]</a><h2>
+</div>
+
+</body>
+</html>

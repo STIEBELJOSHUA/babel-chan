@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+  <title>Babelchan</title>
+
+  <style>
+    label{
+        padding: 7px;
+    }
+    textarea {
+        height:150px;
+        width:60%;
+        resize: none;
+        margin-left: 7px;
+    }
+
+    input{
+        margin-top: 3px;
+        margin-left:3px;
+        margin-bottom:2px;
+    }
+</style>
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='default.css')}}">
+</head>
+<a href="{{ url_for('home')}}"><img id ="logo" src="/static/images/Logo.png" alt="Babelchanlogo"></a>
+<body>
+	<div id ="myDiv">
+		<header id="welcome"><b>Start a thread on {{id}}!</b></header>
+	<p id="para">  </p>
+	<p>
+	Please be sure to read the <a href="">Rules</a> before posting, and read the <a href="">FAQ</a> if you have any more questions about the site. Happy posting!
+	</p>
+	</div>
+
+	<div id ="myDivpost">
+  <form action="" enctype="multipart/form-data" method="post">
+    <label for="ID">Name or Tripcode</label>
+    <input type="text" id="ID" name="ID" placeholder="Anonymous">
+    <label for="title">Thread Title</label>
+    <input type="text" id="title" name="title" placeholder="Title" required>
+    <br>
+    <br>
+    <label for="subject">Message</label>
+    <br>
+    <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+    <br>
+    <br>
+    <input type="file" id="photo" name="file" accept=".png, .jpg, .jpeg" required>
+    <br>
+    <br>
+   <input type="submit" value="upload">
+ </form>
+ </div>
+<footer>
+<b><a href="">About</a> • <a href="">Feedback</a> • <a href="">Legal</a> • <a href="">Contact</a> <br><br></b>
+Copyright © 2020 Babelchan.  All rights reserved.</footer>
+</body>
+</html>

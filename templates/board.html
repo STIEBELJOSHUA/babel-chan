@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+<style >
+  #myDiv2{
+    padding-left: 3px;
+  }
+</style>
+
+
+  <title>Babelchan</title>
+  <meta name="description" content="Babelchan">
+  <link rel="stylesheet" href="{{ url_for('static', filename='default.css')}}">
+</head>
+<a href="{{ url_for('home')}}"><img id ="logo" src="/static/images/Logo.png" alt="Babelchanlogo"></a>
+<body>
+  <hr style="width:99%;height: 0;border: 1px solid #d9bfb7;border-top: none;">
+	<div id ="myDivo">
+		<header id="welcome2"><b>{{id}}</b></header>
+    <hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;">
+		<br>
+	<p id="para" style="font-size:25px;line-height:30px;text-align:center;"> [<a href="{{ url_for('post', id = id) }}" style="color: blue;">Start a New Thread</a>] </p>
+   <hr style="height: 0;border: 1px solid #d9bfb7;border-top: none;">
+	<p style="text-align: center">
+	Please be sure to read the <a href="">Rules</a> before posting, and read the <a href="">FAQ</a> if you have any more questions about the site. Happy posting!
+	</p>
+	</div>
+   <hr style="width:99%;height: 0;border: 1px solid #d9bfb7;border-top: none;">
+{% for post in posts %}
+<div id ="myDiv2">
+  <div>
+  	<h2><span style="color:#cc1105;font-weight:bold">{{post[2]}}</span></h2>
+    <span style="color:#117743;font-weight:bold">{{post[3]}}</span>  
+    <br>
+    Post ID: {{post[0]}}
+    <br>
+    Date:{{post[4][0:10]}}
+    <br><br>
+    <a href="{{ url_for('thread', postnum = post[0])}}" style="color:blue; font-size:13px;">[Join Thread]</a>
+
+  </div>
+</div>
+  {% endfor %}
+<br> <br> <br>
+<div style="text-align: center; padding-bottom: 5px;">
+{% if pages > 1%}
+  Pages:
+
+{% for num in range(1, pages+1)%}
+{% if num != pagenum %}
+  <a href="{{ url_for('board', id=id, pagenum = num)}}" style="color:blue; font-size:13px;">| {{num}}</a>
+{% elif num == pagenum %}
+| {{pagenum}}
+{% endif %}
+{% endfor %}
+
+  |
+{% endif %}
+</div>
+</body>
+</html>
